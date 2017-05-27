@@ -5,19 +5,30 @@ import webbrowser
 import sys
 import json
 from pprint import pprint
+from optparse import OptionParser
+
+parser = OptionParser()
+parser.add_option("-r", "--reference", dest="reference", help="Reference URLs")
 
 json_file = 'projectstart.json'
+with open(json_file) as data_file:
+    data = json.load(data_file)
 
 def openInBrowser( url ):
-    ""
+    "Open browser URL"
     if sys.platform == 'darwin':
         subprocess.Popen(['open',url])
     else:
         webbrowser.open_new_tab(url)
 
-with open(json_file) as data_file:
-    data = json.load(data_file)
+def openURLReferences( reference ):
+     ""
+     for url in data[reference]:
+        openInBrowser(url)
 
-for url in data['urls']:
-    openInBrowser(url)
+(options, args) = parser.parse_args()
 
+if options.reference:
+    openURLReferences( options.reference )
+else:
+    openURLReferences( 'urls' )
