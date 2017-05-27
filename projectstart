@@ -23,7 +23,7 @@ def openInBrowser( url ):
 
 def openURLReferences( reference ):
      ""
-     for url in data[reference]:
+     for url in data[reference]['web']:
         openInBrowser(url)
 
 (options, args) = parser.parse_args()
@@ -31,4 +31,4 @@ def openURLReferences( reference ):
 if options.reference:
     openURLReferences( options.reference )
 else:
-    openURLReferences( 'urls' )
+    openURLReferences( 'project' )

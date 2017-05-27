@@ -1,9 +1,14 @@
 {
-    "urls" : [
-    	"http://google.com"
-    ],
-    "task-1234" : [
-    	"http://trello.com",
-    	"http://github.com"
+  "project" : {
+    "web" : [
+      "https://trello.com/",
+      "http://google.com"
     ]
+  },
+  "task2025067" : {
+    "web" : [
+      "https://trello.com/",
+      "http://google.com"
+    ]
+  }
 }
